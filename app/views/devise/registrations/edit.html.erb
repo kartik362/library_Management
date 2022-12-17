@@ -1,0 +1,142 @@
+<style>
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 140vh;
+    /* background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('1131293.jpg'); */
+    background-size: cover;
+    background-color: rgba(11, 156, 246, 0.212);
+}
+
+form{ position: absolute;
+      height: 1110px;
+      width: 670px;
+    margin-top: 140px;
+    margin-bottom: 30px;
+    background-color: rgba(11, 156, 246, 0.212);
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 0px 4px 8px 10px rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input{ 
+    display: block;
+    width: 310px;
+    height: 20px;
+    margin: -15px;
+    margin-top: 50px;
+    margin-left: 280px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(11, 156, 246);
+    background: transparent;
+    
+}
+label{position: relative;
+  top: 74px;
+  left: -190px;
+  font-size: 22px;
+  
+}
+.button{ 
+    width: 45%;
+    height: 60px;
+    font-size: 20px;
+    background-color: rgb(11, 156, 246);
+    border: 1px solid black;
+    color: white;
+    margin-top: 70px;
+    margin-left: 170px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    border-radius: 22px;
+}
+.button1{ 
+    width: 45%;
+    height: 60px;
+    font-size: 20px;
+    background-color: red;
+    border: 1px solid black;
+    color: white;
+    margin-top: 870px;
+    margin-left: 170px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    border-radius: 22px;
+}
+i{
+  position: absolute;
+  margin-top: 30px;
+  margin-left: -90px;
+}
+p{
+  position: absolute;
+  top: 1000px;
+  left: 650px;
+  font-size: 30px;
+}
+.link{
+  font-size: 30px;
+}
+</style>
+<h1>Edit Profile</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    
+    <label>Firstname :</label><%= f.text_field :Fname, autofocus: true, autocomplete: "Fname", class: 'input' %>
+  </div>
+
+   <div class="field">
+    
+    <label>Lastname :</label><%= f.text_field :Lname, autofocus: true, autocomplete: "Lname" %>
+  </div>
+
+   <div class="field">
+    
+    <label>Phone :</label><%= f.text_field :Phone, autofocus: true, autocomplete: "Phone" %>
+  </div>
+
+   <div class="field">
+    
+    <label>Address :</label><%= f.text_field :Address, autofocus: true, autocomplete: "Address" %>
+  </div>
+
+  <div class="field">
+    
+    <label>Email :</label><%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    
+    <label>Password :</label><%= f.password_field :password, autocomplete: "new-password", class: 'input' %>
+    <i>(leave blank if you don't want to change it). Min 6 characters</i>
+  </div>
+
+  <div class="field">
+    
+    <label>Password Confrimation:</label><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>
+  </div>
+
+  <div class="field">
+    
+    <label>Current Password:</label><%= f.password_field :current_password, autocomplete: "current-password", class: 'input' %>
+    <i>(we need your current password to confirm your changes)</i>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" , :destroy_authlogin_session_path => method: :delete, class: 'button'  %>
+  </div>
+<% end %>
+
+<p>Delete Account</p> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button1' %>
+
+<%= link_to "Back", :back, class: 'link' %>

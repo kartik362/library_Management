@@ -1,0 +1,97 @@
+<style>
+/* *{
+    margin: 0;
+    margin-bottom: 80px;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    
+} */
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    /* background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('1131293.jpg'); */
+    background-size: cover;
+    background-color: rgba(11, 156, 246, 0.212);
+}
+
+form{ position: absolute;
+      height: 520px;
+    margin-top: 140px;
+    margin-bottom: 30px;
+    background-color: rgba(11, 156, 246, 0.212);
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 0px 4px 8px 10px rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input{ position: relative;
+    top: 80px;
+    display: block;
+    width: 350px;
+    height: 20px;
+    margin: 15px;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(11, 156, 246);
+    background: transparent;
+    
+}
+.button{
+    width: 75%;
+    height: 60px;
+    font-size: 20px;
+    background-color: rgb(11, 156, 246);
+    border: 1px solid black;
+    color: white;
+    margin-top: 70px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    border-radius: 22px;
+}
+
+.link1{
+  position: absolute;
+  top: 570px;
+  left: 760px;
+  font-size: 24px;
+  text-decoration: underline;
+}
+.link2{
+  position: absolute;
+  top: 570px;
+  right: 750px;
+  font-size: 24px;
+  color: #03a9f4;
+}
+h1{
+  position: absolute;
+  top: 140px;
+}
+</style>
+<h1>Log in</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'input'  %>
+  </div>
+
+  <div class="field">
+    
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: 'input'  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'button' %>
+  </div>
+<% end %>
+
+<%= link_to "Sign up", new_registration_path(resource_name), class: 'link1' %><br />
+
+
+<%= link_to "Forgot your password?", new_password_path(resource_name), class: 'link2' %><br />

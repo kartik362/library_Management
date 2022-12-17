@@ -1,0 +1,28 @@
+<style>
+html {
+    min-height: 100%;
+}
+body{
+background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+button{ 
+    
+    width: 20%;
+    height: 150px;
+    font-size: 40px;
+    background-color: rgb(255, 204, 0);
+    border: 1px solid black;
+    color: black;
+    margin-top: 70px;
+    margin-left: 720px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    border-radius: 1000px;
+}
+</style>
+<body>
+<h1 align="center">Welcome to Library Management System</h1>
+    <h1><%= link_to "<button>Sign-up</button>".html_safe, new_authlogin_registration_path %>
+    <h1><%= link_to "<button>Login</button>".html_safe, new_authlogin_session_path %>
+</body>
