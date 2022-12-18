@@ -50,7 +50,8 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: library_Management_production
   username: library_Management
   password: <%= ENV["LIBRARY_MANAGEMENT_DATABASE_PASSWORD"] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  
